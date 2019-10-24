@@ -24,6 +24,26 @@ class db{
 
     }
 
+    static all(sql, params = []){
+
+        return new Promise((resolve, reject) => {
+
+            database.all(sql, params, function(err, rows){
+
+                if(err){
+
+                    reject(new Error(err));
+
+                }
+
+                resolve({ rows });
+
+            });
+
+        });
+    }
+
+
 }
 
 module.exports = db;
