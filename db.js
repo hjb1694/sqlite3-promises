@@ -44,6 +44,25 @@ class db{
     }
 
 
+    static get(sql, params = []){
+
+        return new Promise((resolve, reject) => {
+
+            database.get(sql, params = [], function(err, row){
+
+                if(err){
+                    reject(new Error(err));
+                }
+
+                resolve({ row });
+
+            });
+
+        });
+
+
+    }
+
 }
 
 module.exports = db;
